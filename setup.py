@@ -25,12 +25,18 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [str(i.req) for i in parse_requirements('requirements.txt'
+# requirements = [str(i.req) for i in parse_requirements('requirements.txt'
                                                       # , session=False
-                                                      )]
-test_requirements = [str(i.req) for i in parse_requirements('requirements_dev.txt'
+#                                                       )]
+# test_requirements = [str(i.req) for i in parse_requirements('requirements_dev.txt'
                                                             #, session=False
-                                                           )]
+#                                                            )]
+
+install_reqs = parse_requirements('requirements.txt')
+requirements = install_reqs
+install_reqs_test = parse_requirements('requirements_dev.txt')
+test_requirements = install_reqs_test
+
 
 setup(
     name='swagger_parser',
